@@ -8,17 +8,17 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './blog/[slug]/sandpack';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://leerob.io'),
+  metadataBase: new URL('https://kaio.io'),
   title: {
-    default: 'Lee Robinson',
-    template: '%s | Lee Robinson',
+    default: 'Kaio Yuri',
+    template: '%s | Kaio Yuri',
   },
-  description: 'Developer, writer, and creator.',
+  description: 'Developer, designer, and creator.',
   openGraph: {
-    title: 'Lee Robinson',
-    description: 'Developer, writer, and creator.',
-    url: 'https://leerob.io',
-    siteName: 'Lee Robinson',
+    title: 'Kaio Yuri',
+    description: 'Developer, designer, and creator.',
+    url: 'https://kaio.io',
+    siteName: 'Kaio Yuri',
     locale: 'en_US',
     type: 'website',
   },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: 'Lee Robinson',
+    title: 'Kaio Yuri',
     card: 'summary_large_image',
   },
   verification: {
@@ -52,7 +52,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="pt-BR"
       className={cx(
         'text-black bg-white dark:text-white dark:bg-[#111010]',
         GeistSans.variable,
