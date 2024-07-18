@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Kaio Yuri',
     description: 'Developer, designer, and creator.',
-    url: 'https://kaio.io',
+    url: 'https://kaio-io.vercel.app/',
     siteName: 'Kaio Yuri',
-    locale: 'en_US',
+    locale: 'pt_BR',
     type: 'website',
   },
   robots: {
