@@ -48,10 +48,10 @@ export async function getViewsCount(): Promise<
   `;
 }
 
-export const getLeeYouTubeSubs = cache(
+export const getKaioYouTubeSubs = cache(
   async () => {
     let response = await yt.channels.list({
-      id: ['UCZMli3czZnd1uoc1ShTouQw'],
+      id: ['UCFQYJQwpmyuNCXhb73mkQSA'],
       part: ['statistics'],
     });
 
