@@ -23,8 +23,8 @@ export async function generateMetadata({
     image,
   } = post.metadata;
   let ogImage = image
-    ? `https://kaio.io${image}`
-    : `https://kaio.io/og?title=${title}`;
+    ? `https://kaio-io.vercel.app${image}`
+    : `https://kaio-io.vercel.app/og?title=${title}`;
 
   return {
     title,
@@ -34,7 +34,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://kaio.io/blog/${post.slug}`,
+      url: `https://kaio-io.vercel.app/blog/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -68,19 +68,19 @@ function formatDate(date: string) {
 
   if (daysAgo < 1) {
     return 'Hoje';
+  } else if (daysAgo == 1) {
+    return `${fullDate} (Ontem)`;
   } else if (daysAgo < 7) {
-    return `${fullDate} (${daysAgo} dia atrás)`;
+    return `${fullDate} (${daysAgo} dias atrás)`;
   } else if (daysAgo < 30) {
-    const weeksAgo = Math.floor(daysAgo / 7)
-    return `${fullDate} (${weeksAgo} semana atrás)`;
+    const weeksAgo = Math.floor(daysAgo / 7);
+    return `${fullDate} (${weeksAgo} semana${weeksAgo > 1 ? 's' : ''} atrás)`;
   } else if (daysAgo < 365) {
-    const monthsAgo = Math.floor(daysAgo / 30)
-    return `${fullDate} (${monthsAgo} mês atrás)`;
-  } else if (daysAgo > 365 && daysAgo < 365 * 2) {
-    return `${fullDate} (1 ano atrás)`;
+    const monthsAgo = Math.floor(daysAgo / 30);
+    return `${fullDate} (${monthsAgo} mês${monthsAgo > 1 ? 'es' : ''} atrás)`;
   } else {
-    const yearsAgo = Math.floor(daysAgo / 365)
-    return `${fullDate} (${yearsAgo} ano(s) atrás)`;
+    const yearsAgo = Math.floor(daysAgo / 365);
+    return `${fullDate} (${yearsAgo} ano${yearsAgo > 1 ? 's' : ''} atrás)`;
   }
 }
 
@@ -105,9 +105,9 @@ export default function Blog({ params }) {
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
             image: post.metadata.image
-              ? `https://kaio.io${post.metadata.image}`
-              : `https://kaio.io/og?title=${post.metadata.title}`,
-            url: `https://kaio.io/blog/${post.slug}`,
+              ? `https://kaio-io.vercel.app${post.metadata.image}`
+              : `https://kaio-io.vercel.app/og?title=${post.metadata.title}`,
+            url: `https://kaio-io.vercel.app/blog/${post.slug}`,
             author: {
               '@type': 'Person',
               name: 'Kaio Yuri',
