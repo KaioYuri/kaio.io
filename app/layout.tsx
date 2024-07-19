@@ -8,15 +8,15 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './blog/[slug]/sandpack';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kaio.io'),
+  metadataBase: new URL('https://kaio-io.vercel.app/'),
   title: {
     default: 'Kaio Yuri',
     template: '%s | Kaio Yuri',
   },
-  description: 'Developer, designer, and creator.',
+  description: 'Developer, designer, and data engineer.',
   openGraph: {
     title: 'Kaio Yuri',
-    description: 'Developer, designer, and creator.',
+    description: 'Developer, designer, and data engineer.',
     url: 'https://kaio-io.vercel.app/',
     siteName: 'Kaio Yuri',
     locale: 'pt_BR',
