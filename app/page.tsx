@@ -9,6 +9,11 @@ import {
   getKaioYouTubeSubs
 } from './db/queries';
 import { PreloadResources } from 'app/preload';
+import image1 from 'public/images/img1.jpg';
+import image2 from 'public/images/img2.jpeg';
+import image3 from 'public/images/img3.jpeg';
+import image4 from 'public/images/img4.jpeg';
+import image5 from 'public/images/img5.jpeg';
 
 import avatar from './avatar.jpg';
 
@@ -161,10 +166,10 @@ export default function Page() {
         .
       </p>
       <div className="grid grid-cols-2 grid-rows-4 sm:grid-rows-3 sm:grid-cols-3 gap-4 my-8">
-        {/* <div className="relative h-40">
+         <div className="relative h-40">
           <Image
             alt="Me speaking on stage at React Summit about the future of Next.js"
-            src={summit}
+            src={image1}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -174,7 +179,7 @@ export default function Page() {
         <div className="relative sm:row-span-2 row-span-1">
           <Image
             alt="Me standing on stage at Reactathon delivering the keynote"
-            src={reactathon}
+            src={image2}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -184,7 +189,7 @@ export default function Page() {
         <div className="relative">
           <Image
             alt="Me and Guillermo Rauch on stage for Vercel Ship, answering questions from the Next.js community"
-            src={ship}
+            src={image4}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -194,7 +199,7 @@ export default function Page() {
         <div className="relative row-span-2">
           <Image
             alt="Me, Lydia, and Delba filming the Next.js Conf keynote"
-            src={filming}
+            src={image3}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -204,7 +209,7 @@ export default function Page() {
         <div className="relative row-span-2">
           <Image
             alt="My badge on top of a pile of badges from a Vercel meetup we held"
-            src={meetups}
+            src={image5}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -214,13 +219,13 @@ export default function Page() {
         <div className="relative h-40">
           <Image
             alt="Me standing on stage at SmashingConf giving a talk about my optimism for the web"
-            src={smashing}
+            src={image4}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
             className="rounded-lg object-cover"
           />
-        </div> */}
+        </div>
       </div>
       <div className="prose prose-neutral dark:prose-invert">
         <p>
