@@ -3,12 +3,20 @@ import { Suspense } from 'react';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import Image from 'next/image';
-import ViewCounter from 'app/blog/view-counter';
+import ViewCounter from './blog/view-counter';
 import { 
   getViewsCount,
   getKaioYouTubeSubs
 } from './db/queries';
-import { PreloadResources } from 'app/preload';
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "./components/ui/hover-card";
+import { Button } from './components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar';
+import { CalendarDays } from "lucide-react";
+import { PreloadResources } from './preload';
 import image1 from 'public/images/img1.jpg';
 import image2 from 'public/images/img2.jpeg';
 import image3 from 'public/images/img3.jpeg';
@@ -26,6 +34,39 @@ function Badge(props) {
       className="inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
     />
   );
+}
+interface HoverCardDemoProps{
+  nome: string,
+  descricao: string
+}
+function HoverCardDemo({nome, descricao}: HoverCardDemoProps) {
+  return (
+    <HoverCard>
+      <HoverCardTrigger asChild>
+        <Button variant="link">{nome}</Button>
+      </HoverCardTrigger>
+      <HoverCardContent className="w-80">
+        <div className="flex justify-between space-x-4">
+          <Avatar>
+            <AvatarImage src="https://github.com/vercel.png" />
+            <AvatarFallback>VC</AvatarFallback>
+          </Avatar>
+          <div className="space-y-1">
+            <h4 className="text-sm font-semibold">@nextjs</h4>
+            <p className="text-sm">
+              The React Framework – created and maintained by @vercel.
+            </p>
+            <div className="flex items-center pt-2">
+              <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "}
+              <span className="text-xs text-muted-foreground">
+                Joined December 2021
+              </span>
+            </div>
+          </div>
+        </div>
+      </HoverCardContent>
+    </HoverCard>
+  )
 }
 
 function ArrowIcon() {
@@ -165,40 +206,40 @@ export default function Page() {
         </Badge>
         .
       </p>
-      <div className="grid grid-cols-2 grid-rows-4 sm:grid-rows-3 sm:grid-cols-3 gap-4 my-8">
+      <div className="grid grid-cols-2 grid-rows-2 sm:grid-rows-2 sm:grid-cols-3 gap-4 my-8">
          <div className="relative h-40">
           <Image
-            alt="Me speaking on stage at React Summit about the future of Next.js"
+            alt="Eu em um pub de Natal/RN"
             src={image1}
             fill
-            sizes="(max-width: 768px) 213px, 33vw"
+            sizes="(max-width: 768px) 213px, 100vw"
             priority
             className="rounded-lg object-cover"
           />
         </div>
-        <div className="relative sm:row-span-2 row-span-1">
+        {/* <div className="relative sm:row-span-2 row-span-1">
           <Image
-            alt="Me standing on stage at Reactathon delivering the keynote"
+            alt=" "
             src={image2}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
             className="rounded-lg object-cover object-top sm:object-center"
           />
-        </div>
-        <div className="relative">
+        </div> 
+         <div className="relative">
           <Image
-            alt="Me and Guillermo Rauch on stage for Vercel Ship, answering questions from the Next.js community"
+            alt=" "
             src={image4}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
             className="rounded-lg object-cover"
           />
-        </div>
+        </div> */}
         <div className="relative row-span-2">
           <Image
-            alt="Me, Lydia, and Delba filming the Next.js Conf keynote"
+            alt="Minha segnda vez no evento de tecnologia GO!RN, desta vez como profissional de TI."
             src={image3}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
@@ -208,7 +249,7 @@ export default function Page() {
         </div>
         <div className="relative row-span-2">
           <Image
-            alt="My badge on top of a pile of badges from a Vercel meetup we held"
+            alt="Eu e minha cachorrinha, Mel"
             src={image5}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
@@ -218,7 +259,7 @@ export default function Page() {
         </div>
         <div className="relative h-40">
           <Image
-            alt="Me standing on stage at SmashingConf giving a talk about my optimism for the web"
+            alt="Meu primeiro estágio na área de TI."
             src={image4}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
@@ -280,8 +321,8 @@ export default function Page() {
         </div>
         <div className="flex items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800">
           <a href="https://resend.com">
-            <svg width="70" height="17" role="img" aria-label="Resend logo">
-              <use href="/sprite.svg#resend" />
+            <svg width="35" height="27" role="img" aria-label="Resend logo">
+              <use href="/sprite.svg#idx_project" />
             </svg>
           </a>
         </div>
