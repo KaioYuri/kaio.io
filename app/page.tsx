@@ -206,18 +206,18 @@ export default function Page() {
         </Badge>
         .
       </p>
-      <div className="grid grid-cols-2 grid-rows-2 sm:grid-rows-2 sm:grid-cols-3 gap-4 my-8">
+      <div className="grid grid-cols-2 grid-rows-4 sm:grid-rows-3 sm:grid-cols-3 gap-4 my-8">
          <div className="relative h-40">
           <Image
             alt="Eu em um pub de Natal/RN"
             src={image1}
             fill
-            sizes="(max-width: 768px) 213px, 100vw"
+            sizes="(max-width: 768px) 213px, 33vw"
             priority
             className="rounded-lg object-cover"
           />
         </div>
-        {/* <div className="relative sm:row-span-2 row-span-1">
+         <div className="relative sm:row-span-2 row-span-1">
           <Image
             alt=" "
             src={image2}
@@ -236,7 +236,7 @@ export default function Page() {
             priority
             className="rounded-lg object-cover"
           />
-        </div> */}
+        </div>
         <div className="relative row-span-2">
           <Image
             alt="Minha segnda vez no evento de tecnologia GO!RN, desta vez como profissional de TI."
@@ -300,7 +300,7 @@ export default function Page() {
       <div className="my-8 flex h-14 w-full flex-row space-x-2 overflow-x-auto">
         <div className="flex items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800">
           <a href="https://nextjs.org/">
-            <svg width="78" height="20" role="img" aria-label="Linear logo">
+            <svg width="78" height="20" role="img" aria-label="Nextjs logo">
               <use href="/sprite.svg#nextjs-logo" />
             </svg>
           </a>
@@ -320,8 +320,8 @@ export default function Page() {
           </a>
         </div>
         <div className="flex items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800">
-          <a href="https://resend.com">
-            <svg width="35" height="27" role="img" aria-label="Resend logo">
+          <a href="https://idx.google.com/">
+            <svg width="35" height="27" role="img" aria-label="IDX Project logo">
               <use href="/sprite.svg#idx_project" />
             </svg>
           </a>

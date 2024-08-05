@@ -26,9 +26,9 @@ export default function Page(){
           <p className="text-sm text-neutral-500">Quickly apply filters to refine your issues lists and create custom views.</p>
         </div>
         <a className="inline-flex justify-center items-center whitespace-nowrap rounded bg-neutral-900 hover:bg-neutral-950 border border-neutral-800 px-3 py-1.5 text-sm font-medium text-neutral-400 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-neutral-600 transition-colors duration-150" href="#0">
-          <svg className="fill-neutral-500 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="14">
-            <path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
-          </svg>
+          <svg className='mr-2' width="18" height="18" role="img" aria-label="preview">
+              <use href="/sprite.svg#eye" />
+            </svg>
           <span>Connect</span>
         </a>
       </div>
