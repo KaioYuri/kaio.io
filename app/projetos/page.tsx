@@ -9,7 +9,7 @@ export default function Page(){
   {/* Card #1 */}
   <SpotlightCard>
     <div className="relative h-full bg-neutral-950 p-6 pb-8 rounded-[inherit] z-20 overflow-hidden">
-      <p>Tipo</p>
+      {/* <p>Tipo</p> caso seja necessário adicionar uma tag */}
       {/* Radial gradient */}
       <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square" aria-hidden="true">
         <div className="absolute inset-0 translate-z-0 bg-neutral-800 rounded-full blur-[80px]"></div>
@@ -22,14 +22,15 @@ export default function Page(){
         </div>
         {/* Text */}
         <div className="grow mb-5">
-          <h2 className="text-xl text-neutral-200 font-bold mb-1">Amazing Integration</h2>
-          <p className="text-sm text-neutral-500">Quickly apply filters to refine your issues lists and create custom views.</p>
+          <h2 className="text-xl text-neutral-200 font-bold mb-1">Projeto</h2>
+          <p className="text-sm text-neutral-500">Projeto ainda em preparo para ser incrementado ao portifolio.</p> 
+          <p className="text-sm text-neutral-500"> Novidades em breve.</p>
         </div>
         <a className="inline-flex justify-center items-center whitespace-nowrap rounded bg-neutral-900 hover:bg-neutral-950 border border-neutral-800 px-3 py-1.5 text-sm font-medium text-neutral-400 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-neutral-600 transition-colors duration-150" href="#0">
           <svg className='mr-2' width="18" height="18" role="img" aria-label="preview">
               <use href="/sprite.svg#eye" />
             </svg>
-          <span>Connect</span>
+          <span>Visitar</span>
         </a>
       </div>
     </div>
