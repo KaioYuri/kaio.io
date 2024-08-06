@@ -4,8 +4,15 @@ import {
   HoverCardTrigger,
 } from "app/components/ui/hover-card";
 
+import {Badge} from "../page";
+
 import { CalendarDays } from "lucide-react";
 import { Button } from "app/components/ui/button";
+
+export const metadata = {
+  title: 'Trabalho',
+  description: 'Venha conhecer um pouco por onde ja passei.',
+};
 
 interface HoverCardDemoProps {
   nome: string;
@@ -51,9 +58,9 @@ export default function Page() {
           Estagiário de Engenharia de dados
         </p>
         <p>
-          Entrei na <a href="https://www.dataprev.gov.br">Dataprev</a> em outubro de 2023{' '}
+          Entrei na <a href="https://www.dataprev.gov.br" target="_blank">Dataprev</a> em outubro de 2023{' '}
           com um pouco mais de experiência e fiquei animado com projetos
-          realizados em cima de dados. Trabalhei em demandas desafiadoras, como:
+          realizados com dados. Trabalhei em demandas desafiadoras, como:
         </p>
         <ul className="list-disc list-inside">
           <li> Framework{' '}
@@ -65,35 +72,47 @@ export default function Page() {
             clientes que fazem uso da ferramenta.
           </li>
           <li>
-            Observatório de dados: Projeto de <a href="https://vercel.com/home">web scraping</a> de diversas fontes de dados com automação a fim de fornecer dados que serão alimentados por dashboards no observatório de igualdade de gênero.
+            Observatório de dados: Projeto de <a href="">web scraping</a> de diversas fontes de dados com automação a fim de fornecer dados que serão alimentados por dashboards no observatório de igualdade de gênero.
           </li>
         </ul>
         <hr className="my-4 border-neutral-100 dark:border-neutral-800" />
         <div className="h-20 flex justify-between items-baseline">
-          <h2 className=" pb-0 font-medium text-xl tracking-tighter">Dataprev</h2>
+          <h2 className=" pb-0 font-medium text-xl tracking-tighter">INPE</h2>
           <span className="text-sm text-neutral-600 dark:text-neutral-400">
-            outubro de 2023 - até o momento
+            março de 2023 - outubro de 2023
           </span>
         </div>
         <p className=" text-neutral-600 dark:text-neutral-400 text-sm mt-0">
-          Estagiário de Engenharia de dados
+          Desenvolvedor e Analista de redes
         </p>
         <p>
-          Entrei na <a href="https://www.dataprev.gov.br">Dataprev</a> em outubro de 2023{' '}
-          com um pouco mais de experiência e fiquei animado com projetos
-          realizados em cima de dados. Trabalhei em demandas desafiadoras, como:
+          Meu primeiro trabalho como desenvolvedor foi no <a href="https://www.gov.br/inpe/pt-br" target="_blank">INPE</a>{' '} de
+          Natal/RN. Consegui colocar em prática todo o conhecimento que eu tinha sobre desenvolvimento, segurança e
+          redes de computadores, trabalhando nas seguintes vertentes:
         </p>
         <ul className="list-disc list-inside">
-          <li> Framework{' '}
-            <HoverCardDemo
-              nome="PySpark"
-              descricao="PySpark é uma API Python para Apache SPARK que é denominado como o mecanismo de processamento analítico para aplicações de processamento de dados distribuídos em larga escala e aprendizado de máquina, ou seja, para grandes volumes de dados."
-            />
-            : desenvolvi evoluções para o software, documentei e dei apoio a
-            clientes que fazem uso da ferramenta.
+          <li> Controle de acesso físico: aplicação web em <a href="https://angular.dev/" target="_blank" >Angular 16</a> de gerenciamento de acesso físico com arquitetura baseada em eventos (EDA) 
+          com finalidade de gerenciar o controle das áreas internas do edifício do INPE.
           </li>
           <li>
-            Observatório de dados: Projeto de <a href="https://vercel.com/home">web scraping</a> de diversas fontes de dados com automação a fim de fornecer dados que serão alimentados por dashboards no observatório de igualdade de gênero.
+            Gerenciamento de ativos de rede: Participei ativamente da manutenção física e lógica da rede do INPE. Configurei switch's
+            aruba e TP-Link, gerenciei firewall com pfSense e por fim implementei o sistema de AP (Access Point).
+          </li>
+          <li className="prose prose-neutral dark:prose-invert">
+            Analise de vulnerabilidades na rede: Fiz a análise de segurança da rede para retirar todas as brechas
+            do qual atacantes poderiam se aproveitar. Utilizei{' '} 
+            <span className="not-prose">
+            <Badge href="https://www.python.org/">
+          <img
+            alt="Python logomark"
+            src="/python.svg"
+            className="!mr-1"
+            width="13"
+            height="13"
+          />
+          Python
+        </Badge>{' '} .
+            </span>
           </li>
         </ul>
       </div>
