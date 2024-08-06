@@ -26,7 +26,7 @@ import image5 from 'public/images/img5.jpeg';
 import avatar from './avatar.jpg';
 
 
-function Badge(props) {
+export function Badge(props) {
   return (
     <a
       {...props}
