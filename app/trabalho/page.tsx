@@ -4,7 +4,6 @@ import {
   HoverCardTrigger,
 } from "app/components/ui/hover-card";
 
-import {Badge} from "../page";
 
 import { CalendarDays } from "lucide-react";
 import { Button } from "app/components/ui/button";
