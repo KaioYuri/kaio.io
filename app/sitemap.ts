@@ -6,7 +6,7 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt,
   }));
 
-  let routes = ['', '/blog', '/guestbook', '/uses', '/trabalho'].map((route) => ({
+  let routes = ['', '/blog', '/guestbook', '/uses', '/trabalho', '/projetos'].map((route) => ({
     url: `https://kaio-io.vercel.app/${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }));

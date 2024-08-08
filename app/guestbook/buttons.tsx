@@ -8,7 +8,7 @@ export function SignOut() {
       className="text-xs text-neutral-700 dark:text-neutral-300 mt-2 mb-6"
       onClick={() => signOut()}
     >
-      Sign out
+      Sair
     </button>
   );
 }
@@ -20,7 +20,7 @@ export function SignIn() {
       onClick={() => signIn('github')}
     >
       <img alt="GitHub logo" src="/github-logo.svg" width="20" height="20" />
-      <div className="ml-3">Sign in with GitHub</div>
+      <div className="ml-3">Entre com o GitHub</div>
     </button>
   );
 }

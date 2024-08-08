@@ -7,12 +7,15 @@ const navItems = {
   '/trabalho': {
     name: 'trabalho',
   },
+  '/projetos': {
+    name: 'projetos',
+  },
   '/blog': {
     name: 'blog',
   },
   '/guestbook': {
     name: 'guestbook',
-  },
+  }
 };
 
 export function Navbar() {

@@ -17,8 +17,8 @@ export default function Form() {
       }}
     >
       <input
-        aria-label="Your message"
-        placeholder="Your message..."
+        aria-label="Sua mensagem"
+        placeholder="Sua mensagem..."
         name="entry"
         type="text"
         required
@@ -38,7 +38,7 @@ function SubmitButton() {
       disabled={pending}
       type="submit"
     >
-      Sign
+      Assinar
     </button>
   );
 }
