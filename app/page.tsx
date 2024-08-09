@@ -17,11 +17,14 @@ import { Button } from './components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar';
 import { CalendarDays } from "lucide-react";
 import { PreloadResources } from './preload';
-import image1 from 'public/images/img1.jpg';
-import image2 from 'public/images/img2.jpeg';
-import image3 from 'public/images/img3.jpeg';
-import image4 from 'public/images/img4.jpeg';
-import image5 from 'public/images/img5.jpeg';
+import pub from 'public/images/img1.jpg';
+import shop from 'public/images/img2.jpeg';
+import gorn from 'public/images/img3.jpeg';
+import dev from 'public/images/img4.jpeg';
+import mel from 'public/images/img5.jpeg';
+import sol from 'public/images/img6.jpg';
+
+import { HoverCardFollow } from './components/hover-card-comp';
 
 import avatar from './avatar.jpg';
 
@@ -210,7 +213,7 @@ export default function Page() {
          <div className="relative h-40">
           <Image
             alt="Eu em um pub de Natal/RN"
-            src={image1}
+            src={pub}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -220,17 +223,17 @@ export default function Page() {
          <div className="relative sm:row-span-2 row-span-1">
           <Image
             alt=" "
-            src={image2}
+            src={shop}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
-            className="rounded-lg object-cover object-top sm:object-center"
+            className="rounded-lg object-cover sm:object-center"
           />
         </div> 
          <div className="relative">
           <Image
             alt=" "
-            src={image4}
+            src={dev}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -240,7 +243,7 @@ export default function Page() {
         <div className="relative row-span-2">
           <Image
             alt="Minha segnda vez no evento de tecnologia GO!RN, desta vez como profissional de TI."
-            src={image3}
+            src={gorn}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -250,7 +253,7 @@ export default function Page() {
         <div className="relative row-span-2">
           <Image
             alt="Eu e minha cachorrinha, Mel"
-            src={image5}
+            src={mel}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -260,7 +263,7 @@ export default function Page() {
         <div className="relative h-40">
           <Image
             alt="Meu primeiro estágio na área de TI."
-            src={image4}
+            src={sol}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -347,6 +350,9 @@ export default function Page() {
           </a>
         </li>
       </ul>
+    <footer>
+    powered by ⚡️ <HoverCardFollow arroba="kaioyuri" descricao="Desenvolvedor, , Gamer"/>
+    </footer>
     </section>
   );
 }
