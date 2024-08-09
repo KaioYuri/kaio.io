@@ -29,7 +29,7 @@ import { HoverCardFollow } from './components/hover-card-comp';
 import avatar from './avatar.jpg';
 
 
-export function Badge(props) {
+function Badge(props) {
   return (
     <a
       {...props}

@@ -4,7 +4,6 @@ import {
   HoverCardTrigger,
 } from "app/components/ui/hover-card";
 
-import {Badge} from "../page";
 
 import { CalendarDays } from "lucide-react";
 import { Button } from "app/components/ui/button";
@@ -63,16 +62,12 @@ export default function Page() {
           realizados com dados. Trabalhei em demandas desafiadoras, como:
         </p>
         <ul className="list-disc list-inside">
-          <li> Framework{' '}
-            <HoverCardDemo
-              nome="PySpark"
-              descricao="PySpark é uma API Python para Apache SPARK que é denominado como o mecanismo de processamento analítico para aplicações de processamento de dados distribuídos em larga escala e aprendizado de máquina, ou seja, para grandes volumes de dados."
-            />
+          <li> Framework <a href="https://www.databricks.com/br/glossary/pyspark" target="_blank">PySpark</a>
             : desenvolvi evoluções para o software, documentei e dei apoio a
             clientes que fazem uso da ferramenta.
           </li>
           <li>
-            Observatório de dados: Projeto de <a href="">web scraping</a> de diversas fontes de dados com automação a fim de fornecer dados que serão alimentados por dashboards no observatório de igualdade de gênero.
+            Observatório de dados: Projeto de <a href="https://canaltech.com.br/seguranca/o-que-e-web-scraping/" target="_blank">web scraping</a> de diversas fontes de dados com automação a fim de fornecer dados que serão alimentados por dashboards no observatório de igualdade de gênero.
           </li>
         </ul>
         <hr className="my-4 border-neutral-100 dark:border-neutral-800" />
@@ -100,8 +95,8 @@ export default function Page() {
           </li>
           <li className="prose prose-neutral dark:prose-invert">
             Analise de vulnerabilidades na rede: Fiz a análise de segurança da rede para retirar todas as brechas
-            do qual atacantes poderiam se aproveitar. Utilizei{' '} 
-            <span className="not-prose">
+            do qual atacantes poderiam se aproveitar.
+            {/* <span className="not-prose">
             <Badge href="https://www.python.org/">
           <img
             alt="Python logomark"
@@ -112,7 +107,7 @@ export default function Page() {
           />
           Python
         </Badge>{' '} .
-            </span>
+            </span> */}
           </li>
         </ul>
       </div>
