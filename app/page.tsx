@@ -350,8 +350,10 @@ export default function Page() {
           </a>
         </li>
       </ul>
-    <footer>
-    powered by ⚡️ <HoverCardFollow arroba="kaioyuri" descricao="Desenvolvedor, , Gamer"/>
+    <footer className='prose prose-neutral dark:prose-invert text-center mt-20'>
+    feito por ⚡️ 
+    <a href='https://github.com/kaioyuri' target='_blank'>
+    <HoverCardFollow avatar='https://avatars.githubusercontent.com/u/57446721?s=400&u=c18a76cffdcfb85bad5b809f41b9edb3414cdd6a&v=4' arroba="kaioyuri" descricao="Desenvolvedor, Gamer, Geek e amante de tecnologias!" data='Entrou em 06/11/2019'/></a>
     </footer>
     </section>
   );
