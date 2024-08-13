@@ -45,4 +45,3 @@ CREATE TABLE views (
   count INT NOT NULL
 );
 ```
-
