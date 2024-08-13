@@ -8,42 +8,74 @@ const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getAccessToken = async () => {
-  const response = await fetch(TOKEN_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${basic}`,
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token
-    })
-  });
+  if (!refresh_token) {
+    throw new Error("Missing Spotify refresh token");
+  }
 
-  const data = await response.json();
-  return data.access_token;
+  try {
+    const response = await fetch(TOKEN_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Authorization: `Basic ${basic}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch access token: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data.access_token;
+  } catch (error) {
+    console.error("Error getting Spotify access token:", error);
+    throw error; // Rethrow the error so that the caller can handle it
+  }
 };
 
 export const getNowPlaying = async () => {
   const access_token = await getAccessToken();
 
-  const response = await fetch(NOW_PLAYING_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`
-    }
-  });
+  try {
+    const response = await fetch(NOW_PLAYING_ENDPOINT, {
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      }
+    });
 
-  return response.json(); // Aqui retorna os dados como JSON
+    if (!response.ok) {
+      throw new Error(`Failed to fetch now playing: ${response.statusText}`);
+    }
+
+    return await response.json(); // Retorna os dados em JSON
+  } catch (error) {
+    console.error("Error fetching now playing data:", error);
+    return null; // Retorna null ou uma resposta padrão em caso de erro
+  }
 };
 
 export const getTopTracks = async () => {
   const access_token = await getAccessToken();
 
-  const response = await fetch(TOP_TRACKS_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`
-    }
-  });
+  try {
+    const response = await fetch(TOP_TRACKS_ENDPOINT, {
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      }
+    });
 
-  return response.json(); // Aqui retorna os dados como JSON
+    if (!response.ok) {
+      throw new Error(`Failed to fetch top tracks: ${response.statusText}`);
+    }
+
+    return await response.json(); // Retorna os dados em JSON
+  } catch (error) {
+    console.error("Error fetching top tracks data:", error);
+    return null; // Retorna null ou uma resposta padrão em caso de erro
+  }
 };
+
