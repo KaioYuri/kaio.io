@@ -292,7 +292,7 @@ export default function Page() {
       </div>
       <div className="my-8 flex w-full flex-col space-y-4">
         <h2>Em destaque</h2>
-        <BlogLink name="Olá, Mundo!" slug="hello-world" />
+        <BlogLink name="Usando a API do Spotify com Next.js" slug="nextjs-api-spotify" />
         <BlogLink name="Introdução ao Docker" slug="docker-introducao" />
       </div>
       <div className="prose prose-neutral dark:prose-invert">
