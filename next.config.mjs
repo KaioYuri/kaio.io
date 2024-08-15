@@ -1,6 +1,6 @@
 import postgres from 'postgres';
 
-export const sql = postgres(process.env.POSTGRES_URL, {
+export const sql = postgres(process.env.POSTGRES_KAIO_URL, {
   ssl: 'allow',
 });
 
@@ -15,7 +15,7 @@ const nextConfig = {
   },
   transpilePackages: ['next-mdx-remote'],
   async redirects() {
-    if (!process.env.POSTGRES_URL) {
+    if (!process.env.POSTGRES_KAIO_URL) {
       return [];
     }
 
