@@ -58,23 +58,7 @@ export const getKaioYouTubeSubs = cache(
     let channel = response.data.items![0];
     return Number(channel?.statistics?.subscriberCount).toLocaleString();
   },
-  ['leerob-youtube-subs'],
-  {
-    revalidate: 3600,
-  }
-);
-
-export const getVercelYouTubeSubs = cache(
-  async () => {
-    let response = await yt.channels.list({
-      id: ['UCLq8gNoee7oXM7MvTdjyQvA'],
-      part: ['statistics'],
-    });
-
-    let channel = response.data.items![0];
-    return Number(channel?.statistics?.subscriberCount).toLocaleString();
-  },
-  ['vercel-youtube-subs'],
+  ['kaioyuri-youtube-subs'],
   {
     revalidate: 3600,
   }
