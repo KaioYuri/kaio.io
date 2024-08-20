@@ -65,7 +65,7 @@ export async function deleteGuestbookEntries(selectedEntries: string[]) {
   let session = await getSession();
   let email = session.user?.email as string;
 
-  if (email !== 'me@kaio.io') {
+  if (email !== 'kaioyuri96@gmail.com') {
     throw new Error('Unauthorized');
   }
 
