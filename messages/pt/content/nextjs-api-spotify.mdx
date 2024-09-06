@@ -39,7 +39,6 @@ Após autorizar, você será redirecionado de volta para o seu `redirect_uri`. N
 http://localhost:3000/callback?code=NApCCg..BkWtQ
 ```
 
-
 Em seguida, precisaremos recuperar o token de atualização (refresh token). Você precisará gerar uma string codificada em Base 64 contendo o client ID e o secret que você obteve anteriormente. Você pode usar [essa ferramenta](https://www.base64encode.org/) para codificar online. O formato deve ser `client_id:client_secret`.
 
 ```bash
@@ -47,7 +46,6 @@ curl -H "Authorization: Basic <base64 encoded client_id:client_secret>"
 -d grant_type=authorization_code -d code=<code> -d redirect_uri=http%3A
 %2F%2Flocalhost:3000 https://accounts.spotify.com/api/token
 ```
-
 
 Isso retornará uma resposta JSON contendo um `refresh_token`. Este token é [válido indefinidamente](https://github.com/spotify/web-api/issues/374), a menos que você revogue o acesso, então vamos querer salvá-lo em uma variável de ambiente.
 
@@ -91,6 +89,7 @@ const getAccessToken = async () => {
   return response.json();
 };
 ```
+
 Use esse access_token para solicitar suas músicas favoritas de forma segura. Isso assume que você adicionou a permissão user-top-read no início.
 
 ```js
@@ -124,8 +123,8 @@ Isso retornará as dez principais músicas, formatadas para remover informaçõe
     }
   ]
 }
-
 ```
+
 ## Conclusão
 
 O código-fonte completo está disponível [aqui](https://github.com/KaioYuri/kaio.io/tree/main/app/components/lib/spotify.ts).

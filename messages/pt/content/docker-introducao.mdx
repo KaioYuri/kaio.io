@@ -38,25 +38,25 @@ Para começar a usar o Docker, siga estes passos básicos:
 
 2. **Crie uma Imagem Docker**: Escreva um `Dockerfile` que descreve como construir sua imagem Docker. Um exemplo simples poderia ser:
 
-    ```dockerfile
-    FROM node:14
-    WORKDIR /app
-    COPY . .
-    RUN npm install
-    CMD ["node", "app.js"]
-    ```
+   ```dockerfile
+   FROM node:14
+   WORKDIR /app
+   COPY . .
+   RUN npm install
+   CMD ["node", "app.js"]
+   ```
 
 3. **Construa a Imagem**: Use o comando `docker build` para criar a imagem a partir do `Dockerfile`.
 
-    ```sh
-    docker build -t my-node-app .
-    ```
+   ```sh
+   docker build -t my-node-app .
+   ```
 
 4. **Execute o Contêiner**: Use o comando `docker run` para iniciar um contêiner baseado na imagem que você acabou de criar.
 
-    ```sh
-    docker run -p 3000:3000 my-node-app
-    ```
+   ```sh
+   docker run -p 3000:3000 my-node-app
+   ```
 
 ### Conclusão
 

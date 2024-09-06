@@ -1,7 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getNowPlaying } from '../../components/lib/spotify';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   const nowPlaying = await getNowPlaying();
 
   if (nowPlaying && nowPlaying.is_playing) {

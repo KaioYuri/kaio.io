@@ -11,7 +11,14 @@ export default async function sitemap() {
   // Para cada locale, geramos as rotas estáticas e de blog
   locales.forEach((locale) => {
     // Rotas estáticas para cada locale
-    const routes = ['', '/blog', '/guestbook', '/uses', '/trabalho', '/projetos'].map((route) => ({
+    const routes = [
+      '',
+      '/blog',
+      '/guestbook',
+      '/uses',
+      '/trabalho',
+      '/projetos',
+    ].map((route) => ({
       url: `https://kaio-io.vercel.app/${locale}${route}`,
       lastModified: new Date().toISOString().split('T')[0],
     }));

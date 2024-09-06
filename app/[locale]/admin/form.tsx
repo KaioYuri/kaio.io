@@ -41,7 +41,7 @@ export default function Form({ entries }) {
     setSelectedInputs((prevInputs) =>
       checked
         ? [...prevInputs, id]
-        : prevInputs.filter((inputId) => inputId !== id)
+        : prevInputs.filter((inputId) => inputId !== id),
     );
     setStartShiftClickIndex(index);
   };
@@ -50,7 +50,7 @@ export default function Form({ entries }) {
     setSelectedInputs((prevInputs) =>
       prevInputs.includes(id)
         ? prevInputs.filter((inputId) => inputId !== id)
-        : [...prevInputs, id]
+        : [...prevInputs, id],
     );
   };
 
@@ -65,7 +65,7 @@ export default function Form({ entries }) {
 
       if (checked) {
         const combinedSelection = Array.from(
-          new Set([...prevInputs, ...newSelection])
+          new Set([...prevInputs, ...newSelection]),
         );
         return combinedSelection;
       } else {
@@ -87,7 +87,7 @@ export default function Form({ entries }) {
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLInputElement>,
     id: string,
-    index: number
+    index: number,
   ) => {
     if (event.key === 'Enter') {
       // Check if the checkbox was already selected
@@ -147,7 +147,7 @@ function DeleteButton({ isActive }) {
         'px-3 py-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 mb-8 transition-all',
         {
           'bg-red-300/50 dark:bg-red-700/50': isActive,
-        }
+        },
       )}
       disabled={pending}
       type="submit"

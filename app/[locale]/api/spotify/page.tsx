@@ -12,7 +12,11 @@ export default function Page() {
       {nowPlaying ? (
         <div>
           <p>{nowPlaying.item.name}</p>
-          <p>{nowPlaying.item.artists.map((artist: any) => artist.name).join(', ')}</p>
+          <p>
+            {nowPlaying.item.artists
+              .map((artist: any) => artist.name)
+              .join(', ')}
+          </p>
         </div>
       ) : (
         <p>No music is playing right now</p>

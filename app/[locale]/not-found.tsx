@@ -5,7 +5,8 @@ export default function NotFound() {
         Ah não! Esta página não existe.
       </h1>
       <p>
-        Se você esperava ver alguma coisa aqui, deixe-me saber (kaioyuri119@gmail.com).
+        Se você esperava ver alguma coisa aqui, deixe-me saber
+        (kaioyuri119@gmail.com).
       </p>
     </section>
   );

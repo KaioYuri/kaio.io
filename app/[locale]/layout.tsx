@@ -52,8 +52,8 @@ export default function RootLayout({
   children,
   params: { locale },
 }: {
-  children: React.ReactNode,
-  params: { locale: string }
+  children: React.ReactNode;
+  params: { locale: string };
 }) {
   if (!locales.includes(locale)) {
     notFound();
@@ -64,7 +64,7 @@ export default function RootLayout({
       className={cx(
         'text-black bg-white dark:text-white dark:bg-[#111010]',
         GeistSans.variable,
-        GeistMono.variable
+        GeistMono.variable,
       )}
     >
       <head>

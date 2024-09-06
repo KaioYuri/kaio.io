@@ -61,7 +61,7 @@ export const getKaioYouTubeSubs = cache(
   ['kaioyuri-youtube-subs'],
   {
     revalidate: 3600,
-  }
+  },
 );
 
 export async function getGuestbookEntries() {

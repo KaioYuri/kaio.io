@@ -1,21 +1,18 @@
-import { cookies } from 'next/headers'
+import { cookies } from 'next/headers';
 import { Suspense } from 'react';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import Image from 'next/image';
 import ViewCounter from './blog/view-counter';
-import { 
-  getViewsCount,
-  getKaioYouTubeSubs
-} from './db/queries';
+import { getViewsCount, getKaioYouTubeSubs } from './db/queries';
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "./components/ui/hover-card";
+} from './components/ui/hover-card';
 import { Button } from './components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar';
-import { CalendarDays } from "lucide-react";
+import { CalendarDays } from 'lucide-react';
 import { PreloadResources } from './preload';
 import pub from 'public/images/img1.jpg';
 import shop from 'public/images/img2.jpeg';
@@ -28,7 +25,6 @@ import { HoverCardFollow } from './components/hover-card-comp';
 
 import avatar from './avatar.jpg';
 
-
 function Badge(props) {
   return (
     <a
@@ -38,11 +34,11 @@ function Badge(props) {
     />
   );
 }
-interface HoverCardDemoProps{
-  nome: string,
-  descricao: string
+interface HoverCardDemoProps {
+  nome: string;
+  descricao: string;
 }
-function HoverCardDemo({nome, descricao}: HoverCardDemoProps) {
+function HoverCardDemo({ nome, descricao }: HoverCardDemoProps) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
@@ -60,7 +56,7 @@ function HoverCardDemo({nome, descricao}: HoverCardDemoProps) {
               The React Framework – created and maintained by @vercel.
             </p>
             <div className="flex items-center pt-2">
-              <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "}
+              <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{' '}
               <span className="text-xs text-muted-foreground">
                 Joined December 2021
               </span>
@@ -69,7 +65,7 @@ function HoverCardDemo({nome, descricao}: HoverCardDemoProps) {
         </div>
       </HoverCardContent>
     </HoverCard>
-  )
+  );
 }
 
 function ArrowIcon() {
@@ -186,13 +182,13 @@ export default function Page() {
         {`  na `}
         <span className="not-prose">
           <Badge href="https://www.dataprev.gov.br">
-          <img
-            alt="Dataprev logomark"
-            src="/dataprev-removebg-preview.png"
-            className="!mr-1"
-            width="14"
-            height="14"
-          />
+            <img
+              alt="Dataprev logomark"
+              src="/dataprev-removebg-preview.png"
+              className="!mr-1"
+              width="14"
+              height="14"
+            />
             Dataprev
           </Badge>
         </span>
@@ -210,7 +206,7 @@ export default function Page() {
         .
       </p>
       <div className="grid grid-cols-2 grid-rows-4 sm:grid-rows-3 sm:grid-cols-3 gap-4 my-8">
-         <div className="relative h-40">
+        <div className="relative h-40">
           <Image
             alt="Eu em um pub de Natal/RN"
             src={pub}
@@ -220,7 +216,7 @@ export default function Page() {
             className="rounded-lg object-cover"
           />
         </div>
-         <div className="relative sm:row-span-2 row-span-1">
+        <div className="relative sm:row-span-2 row-span-1">
           <Image
             alt=" "
             src={shop}
@@ -229,8 +225,8 @@ export default function Page() {
             priority
             className="rounded-lg object-cover sm:object-center"
           />
-        </div> 
-         <div className="relative">
+        </div>
+        <div className="relative">
           <Image
             alt=" "
             src={dev}
@@ -273,32 +269,36 @@ export default function Page() {
       </div>
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          Eu tenho grande paixão pela área de desenvolvimento e gosto muito de trabalhar
-          em equipe. Meu objetivo principal é ser o mais impactante que posso ser
-          dentro de cada lugar que eu passo, e entregar o melhor resultado de cada produto.
+          Eu tenho grande paixão pela área de desenvolvimento e gosto muito de
+          trabalhar em equipe. Meu objetivo principal é ser o mais impactante
+          que posso ser dentro de cada lugar que eu passo, e entregar o melhor
+          resultado de cada produto.
         </p>
       </div>
-       <div className="my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+      <div className="my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
         <ChannelLink
           img={avatar}
           name="@kaioyuri99"
           link="https://www.youtube.com/@kaioyuri99"
         />
-      </div> 
+      </div>
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          Devido ao grande interesse pela área de TI, decidi criar uma aba para falar sobre notícias, criar artigos educacionais e transmitir o amor que tenho pelo trabalho.
+          Devido ao grande interesse pela área de TI, decidi criar uma aba para
+          falar sobre notícias, criar artigos educacionais e transmitir o amor
+          que tenho pelo trabalho.
         </p>
       </div>
       <div className="my-8 flex w-full flex-col space-y-4">
         <h2>Em destaque</h2>
-        <BlogLink name="Usando a API do Spotify com Next.js" slug="nextjs-api-spotify" />
+        <BlogLink
+          name="Usando a API do Spotify com Next.js"
+          slug="nextjs-api-spotify"
+        />
         <BlogLink name="Introdução ao Docker" slug="docker-introducao" />
       </div>
       <div className="prose prose-neutral dark:prose-invert">
-        <p>
-          Este portifolio foi construído utilizando as tecnologias abaixo.
-        </p>
+        <p>Este portifolio foi construído utilizando as tecnologias abaixo.</p>
       </div>
       <div className="my-8 flex h-14 w-full flex-row space-x-2 overflow-x-auto">
         <div className="flex items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800">
@@ -324,7 +324,12 @@ export default function Page() {
         </div>
         <div className="flex items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800">
           <a href="https://idx.google.com/">
-            <svg width="35" height="27" role="img" aria-label="IDX Project logo">
+            <svg
+              width="35"
+              height="27"
+              role="img"
+              aria-label="IDX Project logo"
+            >
               <use href="/sprite.svg#idx_project" />
             </svg>
           </a>
@@ -350,13 +355,17 @@ export default function Page() {
           </a>
         </li>
       </ul>
-    <footer className='prose prose-neutral dark:prose-invert text-center mt-20'>
-    feito por ⚡️ 
-    <a href='https://github.com/kaioyuri' target='_blank'>
-    <HoverCardFollow avatar='https://avatars.githubusercontent.com/u/57446721?s=400&u=c18a76cffdcfb85bad5b809f41b9edb3414cdd6a&v=4' arroba="kaioyuri" descricao="Desenvolvedor, Gamer, Geek e amante de tecnologias!" data='Entrou em 06/11/2019'/></a>
-    </footer>
+      <footer className="prose prose-neutral dark:prose-invert text-center mt-20">
+        feito por ⚡️
+        <a href="https://github.com/kaioyuri" target="_blank">
+          <HoverCardFollow
+            avatar="https://avatars.githubusercontent.com/u/57446721?s=400&u=c18a76cffdcfb85bad5b809f41b9edb3414cdd6a&v=4"
+            arroba="kaioyuri"
+            descricao="Desenvolvedor, Gamer, Geek e amante de tecnologias!"
+            data="Entrou em 06/11/2019"
+          />
+        </a>
+      </footer>
     </section>
   );
 }
-
-

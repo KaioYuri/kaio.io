@@ -16,7 +16,9 @@ export default function Error({
 
   return (
     <div>
-      <p>Ah não, alguma coisa deu errado... talvez atualizar a página resolva!</p>
+      <p>
+        Ah não, alguma coisa deu errado... talvez atualizar a página resolva!
+      </p>
     </div>
   );
 }
