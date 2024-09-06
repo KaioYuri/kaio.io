@@ -8,21 +8,32 @@ import ViewCounter from '../view-counter';
 import { increment } from 'app/[locale]/db/actions';
 import { unstable_noStore as noStore } from 'next/cache';
 
+interface Props {
+  params: {
+    slug: string;
+    locale: string;
+  };
+}
+
 export async function generateMetadata({
   params,
-}): Promise<Metadata | undefined> {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+}: Props): Promise<Metadata | undefined> {
+  const { slug, locale } = params;
+  const posts = await getBlogPosts(locale); // Ensure getBlogPosts is async
+  const post = posts.find((post) => post.slug === slug);
+
   if (!post) {
     return;
   }
 
-  let {
+  const {
     title,
     publishedAt: publishedTime,
     summary: description,
     image,
   } = post.metadata;
-  let ogImage = image
+
+  const ogImage = image
     ? `https://kaio-io.vercel.app${image}`
     : `https://kaio-io.vercel.app/og?title=${title}`;
 
@@ -34,7 +45,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://kaio-io.vercel.app/blog/${post.slug}`,
+      url: `https://kaio-io.vercel.app/${locale}/blog/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -50,17 +61,17 @@ export async function generateMetadata({
   };
 }
 
-function formatDate(date: string) {
+function formatDate(date: string, locale: string) {
   noStore();
-  let currentDate = new Date().getTime();
+  const currentDate = new Date().getTime();
   if (!date.includes('T')) {
     date = `${date}T00:00:00`;
   }
-  let targetDate = new Date(date).getTime();
-  let timeDifference = Math.abs(currentDate - targetDate);
-  let daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-  
-  let fullDate = new Date(date).toLocaleString('pt-br', {
+  const targetDate = new Date(date).getTime();
+  const timeDifference = Math.abs(currentDate - targetDate);
+  const daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+  const fullDate = new Date(date).toLocaleString(locale, {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
@@ -68,7 +79,7 @@ function formatDate(date: string) {
 
   if (daysAgo < 1) {
     return 'Hoje';
-  } else if (daysAgo == 1) {
+  } else if (daysAgo === 1) {
     return `${fullDate} (Ontem)`;
   } else if (daysAgo < 7) {
     return `${fullDate} (${daysAgo} dias atrás)`;
@@ -84,8 +95,10 @@ function formatDate(date: string) {
   }
 }
 
-export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export default async function Blog({ params }: Props) {
+  const { slug, locale } = params;
+  const posts = await getBlogPosts(locale); // Ensure getBlogPosts is async
+  const post = posts.find((post) => post.slug === slug);
 
   if (!post) {
     notFound();
@@ -107,7 +120,7 @@ export default function Blog({ params }) {
             image: post.metadata.image
               ? `https://kaio-io.vercel.app${post.metadata.image}`
               : `https://kaio-io.vercel.app/og?title=${post.metadata.title}`,
-            url: `https://kaio-io.vercel.app/blog/${post.slug}`,
+            url: `https://kaio-io.vercel.app/${locale}/blog/${post.slug}`,
             author: {
               '@type': 'Person',
               name: 'Kaio Yuri',
@@ -121,16 +134,14 @@ export default function Blog({ params }) {
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
         <Suspense fallback={<p className="h-5" />}>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
+            {formatDate(post.metadata.publishedAt, locale)}
           </p>
         </Suspense>
         <Suspense fallback={<p className="h-5" />}>
           <Views slug={post.slug} />
         </Suspense>
       </div>
-        <Suspense>
-        {post.metadata.summary}
-        </Suspense>
+      <Suspense>{post.metadata.summary}</Suspense>
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
         <CustomMDX source={post.content} />
       </article>
@@ -138,10 +149,10 @@ export default function Blog({ params }) {
   );
 }
 
-let incrementViews = cache(increment);
+const incrementViews = cache(increment);
 
 async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
+  const views = await getViewsCount();
   incrementViews(slug);
   return <ViewCounter allViews={views} slug={slug} />;
 }

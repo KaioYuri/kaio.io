@@ -9,8 +9,13 @@ export const metadata = {
   description: 'Leia meus posts sobre desenvolvimento, design, e mais.',
 };
 
-export default function BlogPage() {
-  let allBlogs = getBlogPosts();
+export default async function BlogPage({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const { locale } = params;
+  const allBlogs = await getBlogPosts(locale);
 
   return (
     <section>
@@ -30,7 +35,7 @@ export default function BlogPage() {
           <Link
             key={post.slug}
             className="flex flex-col space-y-1 mb-4"
-            href={`/blog/${post.slug}`}
+            href={`/${locale}/blog/${post.slug}`}
           >
             <div className="w-full flex flex-col">
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
@@ -47,7 +52,7 @@ export default function BlogPage() {
 }
 
 async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
+  const views = await getViewsCount();
 
   return <ViewCounter allViews={views} slug={slug} />;
 }
