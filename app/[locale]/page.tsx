@@ -99,11 +99,11 @@ async function Subs({ name }: { name: string }) {
   );
 }
 
-function BlogLink({ slug, name }) {
+function BlogLink({ slug, name, locale }) {
   return (
     <div className="group">
       <a
-        href={`/blog/${slug}`}
+        href={`/${locale}/blog/${slug}`}
         className="flex w-full items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800"
       >
         <div className="flex flex-col">
@@ -169,7 +169,9 @@ async function Views({ slug }: { slug: string }) {
   return <ViewCounter allViews={views} slug={slug} />;
 }
 
-export default function Page() {
+export default function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
+
   return (
     <section>
       <PreloadResources />
@@ -294,8 +296,13 @@ export default function Page() {
         <BlogLink
           name="Usando a API do Spotify com Next.js"
           slug="nextjs-api-spotify"
+          locale={locale}
         />
-        <BlogLink name="Introdução ao Docker" slug="docker-introducao" />
+        <BlogLink
+          name="Introdução ao Docker"
+          slug="docker-introducao"
+          locale={locale}
+        />
       </div>
       <div className="prose prose-neutral dark:prose-invert">
         <p>Este portifolio foi construído utilizando as tecnologias abaixo.</p>
