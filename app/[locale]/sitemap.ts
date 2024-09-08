@@ -3,14 +3,10 @@ import { getBlogPosts } from 'app/[locale]/db/blog';
 const locales = ['en', 'pt']; // Adicione todos os idiomas suportados
 
 export default async function sitemap() {
-  const blogs = await getBlogPosts();
 
-  // Declara o tipo explícito para o sitemap
   let sitemap: { url: string; lastModified: string }[] = [];
 
-  // Para cada locale, geramos as rotas estáticas e de blog
-  locales.forEach((locale) => {
-    // Rotas estáticas para cada locale
+  for (const locale of locales) {
     const routes = [
       '',
       '/blog',
@@ -23,15 +19,16 @@ export default async function sitemap() {
       lastModified: new Date().toISOString().split('T')[0],
     }));
 
-    // Rotas de blog para cada locale
+    const blogs = await getBlogPosts(locale);
+
     const localizedBlogs = blogs.map((post) => ({
-      url: `https://kaio-io.vercel.app/${locale}/${post.slug}`,
+      url: `https://kaio-io.vercel.app/${locale}/blog/${post.slug}`,
       lastModified: post.metadata.publishedAt,
     }));
 
     // Adiciona as rotas ao sitemap
     sitemap = [...sitemap, ...routes, ...localizedBlogs];
-  });
+  }
 
   return sitemap;
 }
