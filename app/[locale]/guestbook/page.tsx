@@ -3,6 +3,7 @@ import { getGuestbookEntries } from 'app/[locale]/db/queries';
 import { SignIn, SignOut } from './buttons';
 import { Suspense } from 'react';
 import Form from './form';
+import { useTranslations } from 'next-intl';
 
 export const metadata = {
   title: 'Guestbook',
@@ -10,10 +11,11 @@ export const metadata = {
 };
 
 export default function GuestbookPage() {
+  const t = useTranslations('Guestbook');
   return (
     <section>
       <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-        assine meu livro de visitas
+        {t('title')}
       </h1>
       <Suspense>
         <GuestbookForm />

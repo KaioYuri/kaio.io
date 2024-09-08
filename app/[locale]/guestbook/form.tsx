@@ -3,6 +3,9 @@
 import { useRef } from 'react';
 import { saveGuestbookEntry } from '../db/actions';
 import { useFormStatus } from 'react-dom';
+import { useTranslations } from 'next-intl';
+
+const t = useTranslations('Guestbook');
 
 export default function Form() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -17,8 +20,8 @@ export default function Form() {
       }}
     >
       <input
-        aria-label="Sua mensagem"
-        placeholder="Sua mensagem..."
+        aria-label={t('message')}
+        placeholder={t('message')}
         name="entry"
         type="text"
         required
@@ -38,7 +41,7 @@ function SubmitButton() {
       disabled={pending}
       type="submit"
     >
-      Assinar
+      {t('sign')}
     </button>
   );
 }

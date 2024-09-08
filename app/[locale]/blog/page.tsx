@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import ViewCounter from './view-counter';
 import { getViewsCount } from 'app/[locale]/db/queries';
 import { getBlogPosts } from 'app/[locale]/db/blog';
+import BlogTitle from './BlogTitle';
 
 export const metadata = {
   title: 'Blog',
@@ -19,9 +20,7 @@ export default async function BlogPage({
 
   return (
     <section>
-      <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-        leia meu blog
-      </h1>
+      <BlogTitle />
       {allBlogs
         .sort((a, b) => {
           if (

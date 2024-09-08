@@ -2,29 +2,35 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from './LanguageSwitcher'; // Importando o LanguageSwitcher
 
-const navItems = {
-  '/': {
-    name: 'início',
-  },
-  '/trabalho': {
-    name: 'trabalho',
-  },
-  '/projetos': {
-    name: 'projetos',
-  },
-  '/blog': {
-    name: 'blog',
-  },
-  '/guestbook': {
-    name: 'guestbook',
-  },
-};
+interface NavbarProps {
+  messages: Record<string, string>; // Ajuste conforme necessário
+}
 
-export function Navbar() {
+export function Navbar({ messages }: NavbarProps) {
+  const t = useTranslations('Nav');
+
+  const navItems = {
+    '/': {
+      name: t('home'),
+    },
+    '/trabalho': {
+      name: t('work'),
+    },
+    '/projetos': {
+      name: t('projects'),
+    },
+    '/blog': {
+      name: 'blog',
+    },
+    '/guestbook': {
+      name: 'guestbook',
+    },
+  };
+
   const pathname = usePathname();
-
-  // Supondo que o locale esteja no início da URL, como "/en", "/pt", etc.
   const locale = pathname.split('/')[1] || 'pt'; // Define o locale padrão como 'pt'
 
   return (
@@ -35,19 +41,21 @@ export function Navbar() {
           id="nav"
         >
           <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={`/${locale}${path}`}
-                  className={`transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 ${
-                    pathname === `/${locale}${path}` ? 'font-bold' : ''
-                  }`}
-                >
-                  {name}
-                </Link>
-              );
-            })}
+            {Object.entries(navItems).map(([path, { name }]) => (
+              <Link
+                key={path}
+                href={`/${locale}${path}`}
+                className={`transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 ${
+                  pathname === `/${locale}${path}` ? 'font-bold' : ''
+                }`}
+              >
+                {name}
+              </Link>
+            ))}
+          </div>
+          {/* Adicionando o LanguageSwitcher */}
+          <div className="flex flex-row items-center ml-auto space-x-4 py-1 px-2">
+            <LanguageSwitcher locale={locale} />
           </div>
         </nav>
       </div>

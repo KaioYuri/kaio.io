@@ -4,8 +4,7 @@ import {
   HoverCardTrigger,
 } from 'app/[locale]/components/ui/hover-card';
 
-import { CalendarDays } from 'lucide-react';
-import { Button } from 'app/[locale]/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 export const metadata = {
   title: 'Trabalho',
@@ -36,41 +35,35 @@ function HoverCardDemo({ nome, descricao }: HoverCardDemoProps) {
 }
 
 export default function Page() {
+  const t = useTranslations('Work');
   return (
     <section>
       <h1 className="font-medium text-2xl mb-4 tracking-tighter">
-        Meu trabalho
+        {t('title')}
       </h1>
       <div className="prose prose-neutral dark:prose-invert">
-        <p>
-          Tenho a missão de participar ativamente em projetos de softwares
-          ambiciosos, e aprender continuamente com cada desafio que estiver
-          envolvido.
-        </p>
+        <p>{t('about')}</p>
         <hr className="my-4 border-neutral-100 dark:border-neutral-800" />
         <div className="h-20 flex justify-between items-baseline">
-          <h2 className=" pb-0 font-medium text-xl tracking-tighter">
+          <h2 className="pb-0 font-medium text-xl tracking-tighter">
             Dataprev
           </h2>
           <span className="text-sm text-neutral-600 dark:text-neutral-400">
-            outubro de 2023 - até o momento
+            {t('time-job-1')}
           </span>
         </div>
-        <p className=" text-neutral-600 dark:text-neutral-400 text-sm mt-0">
-          Estagiário de Engenharia de dados
+        <p className="text-neutral-600 dark:text-neutral-400 text-sm mt-0">
+          {t('position-1')}
         </p>
         <p>
-          Entrei na{' '}
+          {t('description-job-1')}
           <a href="https://www.dataprev.gov.br" target="_blank">
             Dataprev
-          </a>{' '}
-          em outubro de 2023 com um pouco mais de experiência e fiquei animado
-          com projetos realizados com dados. Trabalhei em demandas desafiadoras,
-          como:
+          </a>
+          {t('description2-job-1')}
         </p>
         <ul className="list-disc list-inside">
           <li>
-            {' '}
             Framework{' '}
             <a
               href="https://www.databricks.com/br/glossary/pyspark"
@@ -78,74 +71,47 @@ export default function Page() {
             >
               PySpark
             </a>
-            : desenvolvi evoluções para o software, documentei e dei apoio a
-            clientes que fazem uso da ferramenta.
+            : {t('about-job-1')}
           </li>
           <li>
-            Observatório de dados: Projeto de{' '}
+            {t('about2-job-1')}
             <a
               href="https://canaltech.com.br/seguranca/o-que-e-web-scraping/"
               target="_blank"
             >
               web scraping
             </a>{' '}
-            de diversas fontes de dados com automação a fim de fornecer dados
-            que serão alimentados por dashboards no observatório de igualdade de
-            gênero.
+            {t('about3-job-1')}
           </li>
         </ul>
         <hr className="my-4 border-neutral-100 dark:border-neutral-800" />
         <div className="h-20 flex justify-between items-baseline">
-          <h2 className=" pb-0 font-medium text-xl tracking-tighter">INPE</h2>
+          <h2 className="pb-0 font-medium text-xl tracking-tighter">INPE</h2>
           <span className="text-sm text-neutral-600 dark:text-neutral-400">
-            março de 2023 - outubro de 2023
+            {t('time-job-2')}
           </span>
         </div>
-        <p className=" text-neutral-600 dark:text-neutral-400 text-sm mt-0">
-          Desenvolvedor e Analista de redes
+        <p className="text-neutral-600 dark:text-neutral-400 text-sm mt-0">
+          {t('position-2')}
         </p>
         <p>
-          Meu primeiro trabalho como desenvolvedor foi no{' '}
+          {t('description-job-2')}
           <a href="https://www.gov.br/inpe/pt-br" target="_blank">
             INPE
-          </a>{' '}
-          de Natal/RN. Consegui colocar em prática todo o conhecimento que eu
-          tinha sobre desenvolvimento, segurança e redes de computadores,
-          trabalhando nas seguintes vertentes:
+          </a>
+          {t('description2-job-2')}
         </p>
         <ul className="list-disc list-inside">
           <li>
-            {' '}
-            Controle de acesso físico: aplicação web em{' '}
+            {t('about-job-2')}
             <a href="https://angular.dev/" target="_blank">
               Angular 16
-            </a>{' '}
-            de gerenciamento de acesso físico com arquitetura baseada em eventos
-            (EDA) com finalidade de gerenciar o controle das áreas internas do
-            edifício do INPE.
+            </a>
+            {t('about2-job-2')}
           </li>
-          <li>
-            Gerenciamento de ativos de rede: Participei ativamente da manutenção
-            física e lógica da rede do INPE. Configurei switch's aruba e
-            TP-Link, gerenciei firewall com pfSense e por fim implementei o
-            sistema de AP (Access Point).
-          </li>
+          <li>{t('about3-job-2')}</li>
           <li className="prose prose-neutral dark:prose-invert">
-            Analise de vulnerabilidades na rede: Fiz a análise de segurança da
-            rede para retirar todas as brechas do qual atacantes poderiam se
-            aproveitar.
-            {/* <span className="not-prose">
-            <Badge href="https://www.python.org/">
-          <img
-            alt="Python logomark"
-            src="/python.svg"
-            className="!mr-1"
-            width="13"
-            height="13"
-          />
-          Python
-        </Badge>{' '} .
-            </span> */}
+            {t('about4-job-2')}
           </li>
         </ul>
       </div>

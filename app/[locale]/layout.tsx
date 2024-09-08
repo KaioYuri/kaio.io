@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './blog/[slug]/sandpack';
 import { notFound } from 'next/navigation';
+import { NextIntlClientProvider } from 'next-intl';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kaio-io.vercel.app/'),
@@ -48,7 +49,17 @@ const cx = (...classes) => classes.filter(Boolean).join(' ');
 
 const locales = ['en', 'pt'];
 
-export default function RootLayout({
+async function loadMessages(locale: string) {
+  try {
+    const messages = await import(`../../messages/${locale}.json`);
+    return messages.default;
+  } catch (error) {
+    console.error(`Failed to load messages for locale "${locale}":`, error);
+    return {};
+  }
+}
+
+export default async function RootLayout({
   children,
   params: { locale },
 }: {
@@ -58,6 +69,9 @@ export default function RootLayout({
   if (!locales.includes(locale)) {
     notFound();
   }
+
+  const messages = await loadMessages(locale);
+
   return (
     <html
       lang={locale}
@@ -70,13 +84,15 @@ export default function RootLayout({
       <head>
         <SandpackCSS />
       </head>
-      <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </main>
+      <body className="antialiased max-w-2xl mb-40 flex flex-col mx-4 mt-8 lg:mx-auto">
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+            <Navbar messages={messages} />
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

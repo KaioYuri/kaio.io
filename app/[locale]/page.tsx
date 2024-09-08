@@ -22,8 +22,8 @@ import mel from 'public/images/img5.jpeg';
 import sol from 'public/images/img6.jpg';
 
 import { HoverCardFollow } from './components/hover-card-comp';
-
 import avatar from './avatar.jpg';
+import { useTranslations } from 'next-intl';
 
 function Badge(props) {
   return (
@@ -172,16 +172,18 @@ async function Views({ slug }: { slug: string }) {
 export default function Page({ params }: { params: { locale: string } }) {
   const { locale } = params;
 
+  const t = useTranslations('Home');
+
   return (
     <section>
       <PreloadResources />
       <h1 className="mb-8 text-2xl font-medium tracking-tighter">
-        Oi, eu sou kaio 👋
+        {t('title')} 👋
       </h1>
       <p className="prose prose-neutral dark:prose-invert">
-        {`Eu sou desenvolvedor fullstack, com experiência no desenvolvimento web, engenharia de dados, e design. Atualmente `}
-        <Link href="/trabalho">trabalho</Link>
-        {`  na `}
+        {t('description-1')}
+        <Link href={`${locale}/trabalho`}>{t('working')}</Link>
+        {t('description-2')}
         <span className="not-prose">
           <Badge href="https://www.dataprev.gov.br">
             <img
@@ -194,7 +196,7 @@ export default function Page({ params }: { params: { locale: string } }) {
             Dataprev
           </Badge>
         </span>
-        {` como estagiário na divisão de engenharia de dados, onde desenvolvo, dou manutenção e documento aplicações em `}
+        {t('description-3')}
         <Badge href="https://www.python.org/">
           <img
             alt="Python logomark"
@@ -240,7 +242,7 @@ export default function Page({ params }: { params: { locale: string } }) {
         </div>
         <div className="relative row-span-2">
           <Image
-            alt="Minha segnda vez no evento de tecnologia GO!RN, desta vez como profissional de TI."
+            alt="Minha segunda vez no evento de tecnologia GO!RN, desta vez como profissional de TI."
             src={gorn}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
@@ -270,12 +272,7 @@ export default function Page({ params }: { params: { locale: string } }) {
         </div>
       </div>
       <div className="prose prose-neutral dark:prose-invert">
-        <p>
-          Eu tenho grande paixão pela área de desenvolvimento e gosto muito de
-          trabalhar em equipe. Meu objetivo principal é ser o mais impactante
-          que posso ser dentro de cada lugar que eu passo, e entregar o melhor
-          resultado de cada produto.
-        </p>
+        <p>{t('about-me')}</p>
       </div>
       <div className="my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
         <ChannelLink
@@ -285,27 +282,23 @@ export default function Page({ params }: { params: { locale: string } }) {
         />
       </div>
       <div className="prose prose-neutral dark:prose-invert">
-        <p>
-          Devido ao grande interesse pela área de TI, decidi criar uma aba para
-          falar sobre notícias, criar artigos educacionais e transmitir o amor
-          que tenho pelo trabalho.
-        </p>
+        <p>{t('about-blog')}</p>
       </div>
       <div className="my-8 flex w-full flex-col space-y-4">
-        <h2>Em destaque</h2>
+        <h2>{t('featured')}</h2>
         <BlogLink
-          name="Usando a API do Spotify com Next.js"
+          name={t('post-blog-1')}
           slug="nextjs-api-spotify"
           locale={locale}
         />
         <BlogLink
-          name="Introdução ao Docker"
+          name={t('post-blog-2')}
           slug="docker-introducao"
           locale={locale}
         />
       </div>
       <div className="prose prose-neutral dark:prose-invert">
-        <p>Este portifolio foi construído utilizando as tecnologias abaixo.</p>
+        <p>{t('about-tecnologies')}</p>
       </div>
       <div className="my-8 flex h-14 w-full flex-row space-x-2 overflow-x-auto">
         <div className="flex items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800">
@@ -358,18 +351,18 @@ export default function Page({ params }: { params: { locale: string } }) {
             href="https://instagram.com/kaiioyuri"
           >
             <ArrowIcon />
-            <p className="ml-2 h-7">siga me</p>
+            <p className="ml-2 h-7">{t('follow-me')}</p>
           </a>
         </li>
       </ul>
       <footer className="prose prose-neutral dark:prose-invert text-center mt-20">
-        feito por ⚡️
+        {t('made')}⚡️
         <a href="https://github.com/kaioyuri" target="_blank">
           <HoverCardFollow
             avatar="https://avatars.githubusercontent.com/u/57446721?s=400&u=c18a76cffdcfb85bad5b809f41b9edb3414cdd6a&v=4"
             arroba="kaioyuri"
-            descricao="Desenvolvedor, Gamer, Geek e amante de tecnologias!"
-            data="Entrou em 06/11/2019"
+            descricao={t('profile-description')}
+            data={t('profile-time')}
           />
         </a>
       </footer>
