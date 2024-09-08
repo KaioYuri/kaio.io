@@ -1,9 +1,6 @@
 'use client';
 
 import { signIn, signOut } from 'next-auth/react';
-import { useTranslations } from 'next-intl';
-
-const t = useTranslations('Guestbook');
 
 export function SignOut() {
   return (
@@ -11,7 +8,7 @@ export function SignOut() {
       className="text-xs text-neutral-700 dark:text-neutral-300 mt-2 mb-6"
       onClick={() => signOut()}
     >
-      {t('exit')}
+      Exit
     </button>
   );
 }
@@ -23,7 +20,7 @@ export function SignIn() {
       onClick={() => signIn('github')}
     >
       <img alt="GitHub logo" src="/github-logo.svg" width="20" height="20" />
-      <div className="ml-3">{t('sign-with')}</div>
+      <div className="ml-3">sign with github</div>
     </button>
   );
 }
