@@ -56,7 +56,7 @@ function getMDXData(dir) {
 }
 
 export function getBlogPosts(locale: string) {
-  const contentPath = path.join(process.cwd(), 'messages', locale, 'content');
+  const contentPath = path.join(process.cwd(), 'content', locale);
   
   // Verifique o caminho gerado
   console.log('Caminho gerado:', contentPath);
