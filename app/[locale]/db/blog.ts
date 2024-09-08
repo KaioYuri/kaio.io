@@ -57,6 +57,15 @@ function getMDXData(dir) {
 
 export function getBlogPosts(locale: string) {
   // Ajuste o caminho para incluir o locale
-  const contentPath = path.join(process.cwd(), 'messages', locale, 'content');
+  const contentPath = path.join(process.cwd());
+  
+  // Listar os arquivos no diretório contentPath
+  try {
+    const files = fs.readdirSync(contentPath);
+    console.log('Arquivos no diretório:', files);
+  } catch (error) {
+    console.error('Erro ao listar arquivos:', error);
+  }
+
   return getMDXData(contentPath);
 }
