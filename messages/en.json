@@ -58,8 +58,8 @@
   "Guestbook": {
     "title": "sign my guestbook",
     "sign-with": "sign with github",
-    "message":"Your message...",
-    "sign":"Sign",
-    "exit":"Exit"
+    "message": "Your message...",
+    "sign": "Sign",
+    "exit": "Exit"
   }
 }

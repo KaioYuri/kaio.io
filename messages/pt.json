@@ -58,8 +58,8 @@
   "Guestbook": {
     "title": "assine meu livro de visitas",
     "sign-with": "assine com o github",
-    "message":"Sua messagem...",
-    "sign":"Assinar",
-    "exit":"Sair"
+    "message": "Sua messagem...",
+    "sign": "Assinar",
+    "exit": "Sair"
   }
 }
