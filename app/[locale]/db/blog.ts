@@ -57,19 +57,6 @@ function getMDXData(dir) {
 
 export function getBlogPosts(locale: string) {
   const contentPath = path.join(process.cwd(), 'content', locale);
-  
-  // Verifique o caminho gerado
-  console.log('Caminho gerado:', contentPath);
-  
-  try {
-    const files = fs.readdirSync(contentPath);
-    const mdxFiles = files.filter(file => file.endsWith('.mdx'));
-    console.log('Arquivos .mdx no diretório:', mdxFiles);
-    console.log('Arquivos no diretório:', files);
-  } catch (error) {
-    console.error('Erro ao listar arquivos:', error);
-  }
-
   return getMDXData(contentPath);
 }
 
