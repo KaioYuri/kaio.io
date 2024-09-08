@@ -56,12 +56,15 @@ function getMDXData(dir) {
 }
 
 export function getBlogPosts(locale: string) {
-  // Ajuste o caminho para incluir o locale
   const contentPath = path.join(process.cwd(), 'messages', locale, 'content');
   
-  // Listar os arquivos no diretório contentPath
+  // Verifique o caminho gerado
+  console.log('Caminho gerado:', contentPath);
+  
   try {
     const files = fs.readdirSync(contentPath);
+    const mdxFiles = files.filter(file => file.endsWith('.mdx'));
+    console.log('Arquivos .mdx no diretório:', mdxFiles);
     console.log('Arquivos no diretório:', files);
   } catch (error) {
     console.error('Erro ao listar arquivos:', error);
@@ -69,3 +72,4 @@ export function getBlogPosts(locale: string) {
 
   return getMDXData(contentPath);
 }
+
