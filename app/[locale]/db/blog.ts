@@ -57,7 +57,7 @@ function getMDXData(dir) {
 
 export function getBlogPosts(locale: string) {
   // Ajuste o caminho para incluir o locale
-  const contentPath = path.join(process.cwd());
+  const contentPath = path.join(process.cwd(), '.next');
   
   // Listar os arquivos no diretório contentPath
   try {
