@@ -3,7 +3,6 @@ import { getBlogPosts } from 'app/[locale]/db/blog';
 const locales = ['en', 'pt']; // Adicione todos os idiomas suportados
 
 export default async function sitemap() {
-
   let sitemap: { url: string; lastModified: string }[] = [];
 
   for (const locale of locales) {
