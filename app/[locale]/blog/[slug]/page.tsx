@@ -7,6 +7,7 @@ import { getBlogPosts } from 'app/[locale]/db/blog';
 import ViewCounter from '../view-counter';
 import { increment } from 'app/[locale]/db/actions';
 import { unstable_noStore as noStore } from 'next/cache';
+import DateFormatter from './dateUtils';
 
 interface Props {
   params: {
@@ -61,40 +62,6 @@ export async function generateMetadata({
   };
 }
 
-function formatDate(date: string, locale: string) {
-  noStore();
-  const currentDate = new Date().getTime();
-  if (!date.includes('T')) {
-    date = `${date}T00:00:00`;
-  }
-  const targetDate = new Date(date).getTime();
-  const timeDifference = Math.abs(currentDate - targetDate);
-  const daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-
-  const fullDate = new Date(date).toLocaleString(locale, {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  });
-
-  if (daysAgo < 1) {
-    return 'Hoje';
-  } else if (daysAgo === 1) {
-    return `${fullDate} (Ontem)`;
-  } else if (daysAgo < 7) {
-    return `${fullDate} (${daysAgo} dias atrás)`;
-  } else if (daysAgo < 30) {
-    const weeksAgo = Math.floor(daysAgo / 7);
-    return `${fullDate} (${weeksAgo} semana${weeksAgo > 1 ? 's' : ''} atrás)`;
-  } else if (daysAgo < 365) {
-    const monthsAgo = Math.floor(daysAgo / 30);
-    return `${fullDate} (${monthsAgo} mês${monthsAgo > 1 ? 'es' : ''} atrás)`;
-  } else {
-    const yearsAgo = Math.floor(daysAgo / 365);
-    return `${fullDate} (${yearsAgo} ano${yearsAgo > 1 ? 's' : ''} atrás)`;
-  }
-}
-
 export default async function Blog({ params }: Props) {
   const { slug, locale } = params;
   const posts = await getBlogPosts(locale); // Ensure getBlogPosts is async
@@ -133,9 +100,7 @@ export default async function Blog({ params }: Props) {
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
         <Suspense fallback={<p className="h-5" />}>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt, locale)}
-          </p>
+          <DateFormatter date={post.metadata.publishedAt} locale={locale} />
         </Suspense>
         <Suspense fallback={<p className="h-5" />}>
           <Views slug={post.slug} />
