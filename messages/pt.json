@@ -1,0 +1,65 @@
+{
+  "Nav": {
+    "home": "início",
+    "work": "trabalho",
+    "projects": "projetos"
+  },
+  "Home": {
+    "title": "Oi, eu sou o Kaio",
+    "description-1": "Sou um desenvolvedor fullstack, com experiência em desenvolvimento web, engenharia de dados e design. Atualmente estou ",
+    "working": "trabalhando",
+    "description-2": " como estagiário na ",
+    "description-3": " na divisão de engenharia de dados, onde desenvolvo, mantenho e documenta aplicações em ",
+    "about-me": "Tenho uma grande paixão pelo desenvolvimento e realmente gosto de trabalhar em equipe. Meu principal objetivo é ser o mais impactante possível em cada lugar que vou, e entregar o melhor resultado em cada produto.",
+    "about-blog": "Devido ao meu grande interesse na área de TI, decidi criar uma seção para falar sobre notícias, escrever artigos educativos e compartilhar o amor que tenho por este trabalho.",
+    "featured": "Destaques",
+    "post-blog-1": "Usando a API do Spotify com Next.js",
+    "post-blog-2": "Introdução ao Docker",
+    "about-tecnologies": "Este portfólio foi construído usando as tecnologias abaixo.",
+    "follow-me": "siga-me",
+    "made": "Feito por",
+    "profile-description": "Desenvolvedor, Gamer, Geek e entusiasta de tecnologia!",
+    "profile-time": "Entrou em 11/06/2019"
+  },
+  "Work": {
+    "title": "Meu trabalho",
+    "about": "Tenho a missão de participar ativamente em projetos de softwares ambiciosos, e aprender continuamente com cada desafio que estiver envolvido.",
+    "time-job-1": "outubro de 2023 - até o momento",
+    "position-1": "Estagiário de Engenharia de dados",
+    "description-job-1": "Entrei na ",
+    "description2-job-1": " em outubro de 2023 com um pouco mais de experiência e fiquei animado com projetos realizados com dados. Trabalhei em demandas desafiadoras, como:",
+    "about-job-1": " desenvolvi evoluções para o software, documentei e dei apoio a clientes que fazem uso da ferramenta.",
+    "about2-job-1": "Observatório de dados: Projeto de ",
+    "about3-job-1": " de diversas fontes de dados com automação a fim de fornecer dados que serão alimentados por dashboards no observatório de igualdade de gênero.",
+    "time-job-2": "março de 2023 - outubro de 2023",
+    "position-2": "Desenvolvedor e Analista de redes",
+    "description-job-2": "Meu primeiro trabalho como desenvolvedor foi no ",
+    "description2-job-2": " de Natal/RN. Consegui colocar em prática todo o conhecimento que eu tinha sobre desenvolvimento, segurança e redes de computadores, trabalhando nas seguintes vertentes:",
+    "about-job-2": "Controle de acesso físico: aplicação web em ",
+    "about2-job-2": " de gerenciamento de acesso físico com arquitetura baseada em eventos (EDA) com finalidade de gerenciar o controle das áreas internas do edifício do INPE.",
+    "about3-job-2": "Gerenciamento de ativos de rede: Participei ativamente da manutenção física e lógica da rede do INPE. Configurei switch's aruba e TP-Link, gerenciei firewall com pfSense e por fim implementei o sistema de AP (Access Point).",
+    "about4-job-2": "Analise de vulnerabilidades na rede: Fiz a análise de segurança da rede para retirar todas as brechas do qual atacantes poderiam se aproveitar."
+  },
+  "Projects": {},
+  "Blog": {
+    "title": "leia meu blog"
+  },
+  "Post": {
+    "views": "Visualizações",
+    "today": "Hoje",
+    "yesterday": "Ontem",
+    "days": "dias atrás",
+    "week": "semana",
+    "month": "mês",
+    "year": "ano",
+    "ago": "atrás",
+    "s": "es"
+  },
+  "Guestbook": {
+    "title": "assine meu livro de visitas",
+    "sign-with": "assine com o github",
+    "message":"Sua messagem...",
+    "sign":"Assinar",
+    "exit":"Sair"
+  }
+}

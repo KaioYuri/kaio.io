@@ -1,0 +1,65 @@
+{
+  "Nav": {
+    "home": "home",
+    "work": "work",
+    "projects": "projects"
+  },
+  "Home": {
+    "title": "Hi, I am Kaio",
+    "description-1": "I am a fullstack developer, with experience in web development, data engineering, and design. Im currently ",
+    "working": "working",
+    "description-2": " as an intern at ",
+    "description-3": " in the data engineering division, where I develop, maintain, and document applications in ",
+    "about-me": "I have a great passion for development and I really enjoy working in a team. My main goal is to be as impactful as I can in every place I go, and deliver the best result in every product.",
+    "about-blog": "Due to my great interest in the IT field, I decided to create a section to talk about news, write educational articles, and share the love I have for this work.",
+    "featured": "Featured",
+    "post-blog-1": "Using the Spotify API with Next.js",
+    "post-blog-2": "Introduction to Docker",
+    "about-tecnologies": "This portfolio was built using the technologies below.",
+    "follow-me": "follow me",
+    "made": "Made by",
+    "profile-description": "Developer, Gamer, Geek, and tech enthusiast!",
+    "profile-time": "Joined on 11/06/2019"
+  },
+  "Work": {
+    "title": "My work",
+    "about": "I have the mission of actively participating in ambitious software projects and continuously learning from every challenge I am involved in.",
+    "time-job-1": "October 2023 - Present",
+    "position-1": "Data Engineering Intern",
+    "description-job-1": "I joined ",
+    "description2-job-1": " in October 2023 with a bit more experience and was excited about projects involving data. I worked on challenging tasks such as:",
+    "about-job-1": "I developed software improvements, documented, and supported clients who use the tool.",
+    "about2-job-1": "Data Observatory: A project involving ",
+    "about3-job-1": " from various data sources with automation to provide data that will be fed into dashboards in the Gender Equality Observatory.",
+    "time-job-2": "March 2023 - October 2023",
+    "position-2": "Developer and Network Analyst",
+    "description-job-2": "My first job as a developer was at ",
+    "description2-job-2": " in Natal/RN. I was able to put into practice all the knowledge I had about development, security, and computer networks, working in the following areas:",
+    "about-job-2": "Physical Access Control: A web application in ",
+    "about2-job-2": " for managing physical access with an event-driven architecture (EDA) to manage the control of internal areas of the INPE building.",
+    "about3-job-2": "Network Asset Management: I actively participated in the physical and logical maintenance of the INPE network. I configured Aruba and TP-Link switches, managed firewalls with pfSense, and finally implemented the AP (Access Point) system.",
+    "about4-job-2": "Network Vulnerability Analysis: I performed a network security analysis to eliminate all vulnerabilities that attackers could exploit."
+  },
+  "Projects": {},
+  "Blog": {
+    "title": "read my blog"
+  },
+  "Post": {
+    "views": "Views",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "days": "days ago",
+    "week": "week",
+    "month": "month",
+    "year": "year",
+    "ago": "ago",
+    "s": "s"
+  },
+  "Guestbook": {
+    "title": "sign my guestbook",
+    "sign-with": "sign with github",
+    "message":"Your message...",
+    "sign":"Sign",
+    "exit":"Exit"
+  }
+}
