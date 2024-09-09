@@ -1,4 +1,4 @@
-import { auth } from 'app/[locale]/auth';
+import { auth } from '../../auth';
 import { getGuestbookEntries } from 'app/[locale]/db/queries';
 import { SignIn, SignOut } from './buttons';
 import { Suspense } from 'react';
