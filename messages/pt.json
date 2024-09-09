@@ -5,7 +5,7 @@
     "projects": "projetos"
   },
   "Home": {
-    "title": "Oi, eu sou o Kaio",
+    "title": "Oi, eu sou Kaio",
     "description-1": "Sou um desenvolvedor fullstack, com experiência em desenvolvimento web, engenharia de dados e design. Atualmente estou ",
     "working": "trabalhando",
     "description-2": " como estagiário na ",
@@ -40,7 +40,12 @@
     "about3-job-2": "Gerenciamento de ativos de rede: Participei ativamente da manutenção física e lógica da rede do INPE. Configurei switch's aruba e TP-Link, gerenciei firewall com pfSense e por fim implementei o sistema de AP (Access Point).",
     "about4-job-2": "Analise de vulnerabilidades na rede: Fiz a análise de segurança da rede para retirar todas as brechas do qual atacantes poderiam se aproveitar."
   },
-  "Projects": {},
+  "Projects": {
+    "title": "Projeto",
+    "description": "Projeto ainda em preparo para ser incrementado ao portifolio.",
+    "update": "Novidades em breve.",
+    "visit": "Visitar"
+  },
   "Blog": {
     "title": "leia meu blog"
   },

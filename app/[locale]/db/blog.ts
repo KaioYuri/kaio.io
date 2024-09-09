@@ -59,4 +59,3 @@ export function getBlogPosts(locale: string) {
   const contentPath = path.join(process.cwd(), 'content', locale);
   return getMDXData(contentPath);
 }
-

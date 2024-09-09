@@ -1,9 +1,13 @@
+'use client';
+
 import React from 'react';
 import Card01 from '../../../public/images/card-01.png';
 import Image from 'next/image';
 import Spotlight, { SpotlightCard } from '../components/spotlight';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('Projects');
   return (
     <Spotlight className="max-w-sm mx-auto grid gap-6 lg:grid-cols-2 items-start lg:max-w-none group">
       {/* Card #1 */}
@@ -35,12 +39,10 @@ export default function Page() {
             {/* Text */}
             <div className="grow mb-5">
               <h2 className="text-xl text-neutral-200 font-bold mb-1">
-                Projeto
+                {t('title')}
               </h2>
-              <p className="text-sm text-neutral-500">
-                Projeto ainda em preparo para ser incrementado ao portifolio.
-              </p>
-              <p className="text-sm text-neutral-500"> Novidades em breve.</p>
+              <p className="text-sm text-neutral-500">{t('description')}</p>
+              <p className="text-sm text-neutral-500"> {t('update')}</p>
             </div>
             <a
               className="inline-flex justify-center items-center whitespace-nowrap rounded bg-neutral-900 hover:bg-neutral-950 border border-neutral-800 px-3 py-1.5 text-sm font-medium text-neutral-400 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-neutral-600 transition-colors duration-150"
@@ -55,7 +57,7 @@ export default function Page() {
               >
                 <use href="/sprite.svg#eye" />
               </svg>
-              <span>Visitar</span>
+              <span>{t('visit')}</span>
             </a>
           </div>
         </div>

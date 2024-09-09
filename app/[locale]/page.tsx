@@ -85,19 +85,19 @@ function ArrowIcon() {
   );
 }
 
-async function Subs({ name }: { name: string }) {
-  noStore();
-  let subscribers;
-  if (name === '@leerob') {
-    subscribers = await getKaioYouTubeSubs();
-  }
+// async function Subs({ name }: { name: string }) {
+//   noStore();
+//   let subscribers;
+//   if (name === '@leerob') {
+//     subscribers = await getKaioYouTubeSubs();
+//   }
 
-  return (
-    <p className="text-neutral-600 dark:text-neutral-400">
-      {subscribers} inscritos
-    </p>
-  );
-}
+//   return (
+//     <p className="text-neutral-600 dark:text-neutral-400">
+//       {subscribers} inscritos
+//     </p>
+//   );
+// }
 
 function BlogLink({ slug, name, locale }) {
   return (
@@ -151,9 +151,9 @@ function ChannelLink({ img, link, name }) {
             <p className="font-medium text-neutral-900 dark:text-neutral-100">
               {name}
             </p>
-            <Suspense fallback={<p className="h-6" />}>
+            {/* <Suspense fallback={<p className="h-6" />}>
               <Subs name={name} />
-            </Suspense>
+            </Suspense> */}
           </div>
         </div>
         <div className="transform text-neutral-700 transition-transform duration-300 group-hover:-rotate-12 dark:text-neutral-300">

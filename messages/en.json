@@ -5,7 +5,7 @@
     "projects": "projects"
   },
   "Home": {
-    "title": "Hi, I am Kaio",
+    "title": "Hi, I'm Kaio",
     "description-1": "I am a fullstack developer, with experience in web development, data engineering, and design. Im currently ",
     "working": "working",
     "description-2": " as an intern at ",
@@ -40,7 +40,12 @@
     "about3-job-2": "Network Asset Management: I actively participated in the physical and logical maintenance of the INPE network. I configured Aruba and TP-Link switches, managed firewalls with pfSense, and finally implemented the AP (Access Point) system.",
     "about4-job-2": "Network Vulnerability Analysis: I performed a network security analysis to eliminate all vulnerabilities that attackers could exploit."
   },
-  "Projects": {},
+  "Projects": {
+    "title": "Project",
+    "description": "The project is still being prepared to be added to the portfolio.",
+    "update": "Updates coming soon.",
+    "visit": "Visit"
+  },
   "Blog": {
     "title": "read my blog"
   },
