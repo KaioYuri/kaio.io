@@ -20,14 +20,16 @@
     "@vercel/analytics": "^1.1.3",
     "@vercel/speed-insights": "^1.0.9",
     "autoprefixer": "^10.4.17",
+    "caniuse-lite": "^1.0.30001658",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.2",
     "geist": "1.2.2",
     "instagram-private-api": "^1.46.1",
     "lucide-react": "^0.414.0",
-    "next": "14.2.0-canary.66",
+    "next": "^14.2.7",
     "next-auth": "5.0.0-beta.3",
+    "next-intl": "^3.19.0",
     "next-mdx-remote": "^4.4.1",
     "postcss": "^8.4.35",
     "postgres": "^3.4.4",
@@ -42,5 +44,11 @@
   },
   "prettier": {
     "singleQuote": true
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md}": "prettier --write"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
   }
 }

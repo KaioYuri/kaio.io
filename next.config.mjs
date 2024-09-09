@@ -1,44 +1,11 @@
 import postgres from 'postgres';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
 
 export const sql = postgres(process.env.POSTGRES_KAIO_URL, {
   ssl: 'allow',
 });
-
-const nextConfig = {
-  experimental: {
-    ppr: true,
-  },
-  logging: {
-    fetches: {
-      fullUrl: true,
-    },
-  },
-  transpilePackages: ['next-mdx-remote'],
-  async redirects() {
-    if (!process.env.POSTGRES_KAIO_URL) {
-      return [];
-    }
-
-    let redirects = await sql`
-      SELECT source, destination, permanent
-      FROM redirects;
-    `;
-
-    return redirects.map(({ source, destination, permanent }) => ({
-      source,
-      destination,
-      permanent: !!permanent,
-    }));
-  },
-  headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
-    ];
-  },
-};
 
 const ContentSecurityPolicy = `
     default-src 'self' vercel.live;
@@ -82,4 +49,38 @@ const securityHeaders = [
   },
 ];
 
-export default nextConfig;
+const nextConfig = {
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+  transpilePackages: ['next-mdx-remote'],
+  async redirects() {
+    if (!process.env.POSTGRES_KAIO_URL) {
+      return [];
+    }
+
+    let redirects = await sql`
+      SELECT source, destination, permanent
+      FROM redirects;
+    `;
+
+    return redirects.map(({ source, destination, permanent }) => ({
+      source,
+      destination,
+      permanent: !!permanent,
+    }));
+  },
+  headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ];
+  },
+};
+
+// Envolva o nextConfig com o withNextIntl para adicionar suporte a internacionalização
+export default withNextIntl(nextConfig);
